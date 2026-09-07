@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#047857" />
+
+    <title>CSV to JSON Converter — and JSON to CSV, in your browser</title>
+    <meta
+      name="description"
+      content="Convert CSV to JSON and JSON to CSV in your browser. Handles quoted fields and doubled quotes (RFC 4180), custom delimiters (comma, semicolon, tab, pipe), an optional header row and automatic number and boolean detection. Nothing is uploaded."
+    />
+    <link rel="canonical" href="https://csv-json-converter.correia95.workers.dev/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CSV ⇄ JSON Converter" />
+    <meta property="og:description" content="CSV to JSON and JSON to CSV — quoted fields, custom delimiters, header row, type detection. Client-side, no sign-up." />
+    <meta property="og:url" content="https://csv-json-converter.correia95.workers.dev/" />
+    <meta property="og:image" content="https://csv-json-converter.correia95.workers.dev/og.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CSV ⇄ JSON Converter" />
+    <meta name="twitter:description" content="CSV to JSON and JSON to CSV — quoted fields, custom delimiters, header row, type detection. Client-side, no sign-up." />
+    <meta name="twitter:image" content="https://csv-json-converter.correia95.workers.dev/og.svg" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CSV to JSON Converter",
+        "url": "https://csv-json-converter.correia95.workers.dev/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Convert CSV to JSON and JSON to CSV in the browser, with RFC 4180 quoted-field parsing, custom delimiters, a header-row option and automatic type detection."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I convert CSV to JSON?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Paste the CSV into the input box with \"CSV → JSON\" selected. With the header-row option on, the first line becomes the object keys and each following row becomes a JSON object; with it off you get an array of arrays."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I convert JSON to CSV?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Switch to \"JSON → CSV\" and paste an array of objects. The columns are the union of all keys, so objects missing a key get an empty cell. An array of arrays is written row by row and a single object becomes one row."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it handle commas and quotes inside fields?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Fields wrapped in double quotes may contain commas, line breaks and doubled quotes (\"\") per RFC 4180, and the converter quotes and escapes fields that need it when writing CSV."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my data sent to a server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The conversion runs entirely in your browser and the input is stored only in your browser's local storage. The page works offline once loaded."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <noscript>
+      <p style="text-align: center; padding: 20px">
+        This CSV/JSON converter needs JavaScript. It converts CSV to JSON and JSON to CSV in your
+        browser, with quoted-field support and custom delimiters.
+      </p>
+    </noscript>
+  </body>
+</html>
